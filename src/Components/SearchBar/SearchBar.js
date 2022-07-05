@@ -18,18 +18,18 @@ function SearchBar() {
   // makes fetch request to movie API and stores data in state for user
   const movieSearchSubmit = async () => {
     if (!movieSearchContent) {
-      console.log("Please enter a movie title.");
+      setMovieData(["Please enter a movie title."]);
       return;
     }
 
     try {
       const res = await fetch(
-        `https://omdbapi.com/?s=${movieSearchContent}&apikey=923b962c`
+        `https://omdbapi.com/?s=${movieSearchContent}${process.env.REACT_APP_API_KEY}`
       );
       const data = await res.json();
       if (res.ok) {
         console.log(data)
-        if (data.Response === "False") {
+        if (data.Error) {
           setMovieData([data.Error])
           return 
         }
@@ -39,8 +39,6 @@ function SearchBar() {
       console.log(err);
     }
   };
-
-  console.log(movieData)
 
   return (
     <>
