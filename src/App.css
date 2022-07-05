@@ -25,6 +25,7 @@
   min-width: 80px;
   min-height: 30px;
   margin: .3em;
+  filter: drop-shadow(3px 5px 4px rgba( 0,0,0,0.3));
 }
 
 /*  */
@@ -63,6 +64,7 @@
 .poster-container-title {
   display: flex;
   margin: 5%;
+  color: aliceblue;
 }
 
 /* container for all search content */

@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import SearchResult from "./SearchResult/SearchResult";
-import data from "../../data";
 
 function SearchBar() {
   const [movieSearchContent, setMovieSearchContent] = useState();
@@ -30,13 +29,18 @@ function SearchBar() {
       const data = await res.json();
       if (res.ok) {
         console.log(data)
-        setMovieData(data)
-
+        if (data.Response === "False") {
+          setMovieData([data.Error])
+          return 
+        }
+        setMovieData(data.Search)
       }
     } catch (err) {
       console.log(err);
     }
   };
+
+  console.log(movieData)
 
   return (
     <>
