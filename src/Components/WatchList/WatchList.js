@@ -1,52 +1,74 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import useFetch from "../../hooks/useFetch";
 
 function WatchList() {
-  const [watchlistData, setWatchlistData] = useState([]);
-  const [movieData, setMovieData] = useState([]);
+  const [movieData, setMovieData] = useState();
+  const [deleteMovieData, setDeleteMovieData] = useState({
+    url: null,
+    method: null,
+    body: null,
+  });
 
-  // intial data fetch for watchlist data of user and stores in state to use later
+  useFetch(deleteMovieData.url, deleteMovieData.method, deleteMovieData.body);
+
+  // get inital watchlist data and store it in a state
   useEffect(() => {
-    const watchlistDataFetch = async () => {
-      const res = await fetch(`http://localhost:3001/movie/hullo`, {
-        method: "GET"
-      })
-      const data = await res.json();
-      setWatchlistData([data])
-    };
-    watchlistDataFetch();
+    const initialData = async () => {
+      const res = await fetch(`http://localhost:3001/movie/Hullo1247`, {method: "GET"})
+      const data = await res.json()
 
-  }, []);
-  
+      if (res.ok) {
+        setMovieData(data.payload[0].data)
+        console.log(true)
+      }
+    }
+    initialData();
+  }, [])
 
-  //http://www.omdbapi.com/?i=${arr.title}${process.env.REACT_APP_API_KEY}
-
-  console.log(watchlistData[0]?.payload)
+  // sends delete data to be used in useFetch, as well as updating state
+  // causing re-render of page without retching inital data again
+  const deleteMovieFromList = async (id) => {
+    const body = JSON.stringify({ user: "Hullo1247", type: "movie", id: id });
+    setDeleteMovieData({
+      url: `http://localhost:3001/movie`,
+      method: "DELETE",
+      body: body,
+    })
+    setMovieData(movieData.filter((arr) => arr._id !== id))
+  };
 
   return (
     <div>
-    <div>
-      <Link to="/">
-        <button>Home</button>
-      </Link>
-    </div>
-    <div className="search-styling">
-      {watchlistData[0]?.payload.map((arr, index) => {
-        return (
-          <div key={index} className="poster-container">
-            <img className="poster-styling" src={arr.poster} alt={arr.title} />
-            <div className="poster-container-overlay">
-              <div className="poster-container-title">{arr.title}</div>
-              <div className="poster-container-title">{arr.year}</div>
-              <button className="poster-container-text" >
-                Add to watchlist
-              </button>
+      <div>
+        <Link to="/">
+          <button>Home</button>
+        </Link>
+      </div>
+      <div className="search-styling">
+        {movieData?.map((arr, index) => {
+          return (
+            <div key={index} className="poster-container">
+              <img
+                className="poster-styling"
+                src={arr.poster}
+                alt={arr.title}
+              />
+              <div className="poster-container-overlay">
+                <div className="poster-container-title">{arr.title}</div>
+                <div className="poster-container-title">{arr.year}</div>
+                <button
+                  className="poster-container-text"
+                  onClick={() => deleteMovieFromList(arr._id)}
+                >
+                  Delete from list
+                </button>
+              </div>
             </div>
-          </div>
-        );
-      })}
-    </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
