@@ -3,7 +3,7 @@ import { useState } from "react";
 import SearchResult from "./SearchResult/SearchResult";
 
 function SearchBar() {
-  const [movieSearchContent, setMovieSearchContent] = useState();
+  const [movieSearchContent, setMovieSearchContent] = useState("");
   const [movieData, setMovieData] = useState();
 
   // checks for contet in input field and if key pressed is enter, if true submits search
@@ -29,6 +29,7 @@ function SearchBar() {
       const data = await res.json();
       if (res.ok) {
         console.log(data)
+        setMovieSearchContent("")
         if (data.Error) {
           setMovieData([data.Error])
           return 
@@ -46,6 +47,7 @@ function SearchBar() {
       <input
         type="text"
         placeholder="Movie search"
+        value={movieSearchContent} 
         onKeyPress={movieSearchCheck}
         onChange={(e) => setMovieSearchContent(e.target.value)}
       ></input>

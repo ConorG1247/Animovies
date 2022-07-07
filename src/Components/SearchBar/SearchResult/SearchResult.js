@@ -6,6 +6,8 @@ function SearchResult({ movieData }) {
   const [fetchContent, setFetchContent] = useState({url: null, method: null, body: null});
   useFetch(fetchContent.url, fetchContent.method, fetchContent.body)
 
+  // sets data on function call to match the movie selected and passes the data
+  // to be used by the useFetch hook
   const defineFetchContent = (arr) => {
     const url = `http://localhost:3001/movie`
     const method = "POST"
