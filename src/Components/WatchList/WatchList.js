@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
+import NavBar from "../NavBar/NavBar";
 
 function WatchList() {
   const [movieData, setMovieData] = useState();
@@ -41,11 +41,7 @@ function WatchList() {
 
   return (
     <div>
-      <div>
-        <Link to="/">
-          <button>Home</button>
-        </Link>
-      </div>
+    <NavBar />
       <div className="search-styling">
         {movieData?.map((arr, index) => {
           return (

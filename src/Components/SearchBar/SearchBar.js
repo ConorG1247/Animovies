@@ -1,10 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import SearchResult from "./SearchResult/SearchResult";
+import { useNavigate } from "react-router-dom";
 
 function SearchBar() {
   const [movieSearchContent, setMovieSearchContent] = useState("");
-  const [movieData, setMovieData] = useState();
+
+  let navigate = useNavigate();
 
   // checks for contet in input field and if key pressed is enter, if true submits search
   const movieSearchCheck = (e) => {
@@ -18,42 +19,24 @@ function SearchBar() {
   // makes fetch request to movie API and stores data in state for user
   const movieSearchSubmit = async () => {
     if (!movieSearchContent) {
-      setMovieData(["Please enter a movie title."]);
       return;
     }
-
-    try {
-      const res = await fetch(
-        `https://omdbapi.com/?s=${movieSearchContent}${process.env.REACT_APP_API_KEY}`
-      );
-      const data = await res.json();
-      if (res.ok) {
-        console.log(data)
-        setMovieSearchContent("")
-        if (data.Error) {
-          setMovieData([data.Error])
-          return 
-        }
-        setMovieData(data.Search)
-      }
-    } catch (err) {
-      console.log(err);
-    }
+    navigate(`/search/${movieSearchContent}`, {
+      state: movieSearchContent,
+      replace: true,
+    });
   };
 
   return (
     <>
-      <div>Search Bar</div>
       <input
         type="text"
         placeholder="Movie search"
-        value={movieSearchContent} 
+        value={movieSearchContent}
         onKeyPress={movieSearchCheck}
         onChange={(e) => setMovieSearchContent(e.target.value)}
       ></input>
-      <button onClick={movieSearchSubmit}>Submit</button>
-      <br/>
-      <SearchResult movieData={movieData} />
+      <br />
     </>
   );
 }

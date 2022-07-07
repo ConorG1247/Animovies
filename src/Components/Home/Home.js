@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import NavBar from "../NavBar/NavBar";
-import SearchBar from "../SearchBar/SearchBar";
 import Main from "../Main/Main";
 
 function Home() {
@@ -19,8 +18,6 @@ function Home() {
       <br />
       <Main offsetY={offsetY} />
       <div style={{ transform: `translateY(${offsetY * 0.2}px)` }}>
-      <br/>
-        <SearchBar />
       </div>
     </div>
   );
