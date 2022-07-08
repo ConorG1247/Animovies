@@ -16,9 +16,12 @@ function WatchList() {
   // get inital watchlist data and store it in a state
   useEffect(() => {
     const initialData = async () => {
-      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/movie/Hullo1247`, {
-        method: "GET",
-      });
+      const res = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/movie/Hullo1247`,
+        {
+          method: "GET",
+        }
+      );
       const data = await res.json();
 
       if (res.ok) {
@@ -44,6 +47,7 @@ function WatchList() {
   return (
     <div>
       <NavBar />
+      <div className="main-container-center">
       <div className="search-styling">
         {movieData?.map((arr, index) => {
           return (
@@ -66,6 +70,7 @@ function WatchList() {
             </div>
           );
         })}
+        </div>
       </div>
     </div>
   );

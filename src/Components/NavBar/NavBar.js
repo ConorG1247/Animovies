@@ -4,14 +4,22 @@ import SearchBar from "../SearchBar/SearchBar";
 
 function NavBar() {
   return (
-    <div>
-      <Link to="/">
-        <button>Home</button>
-      </Link>
-      <Link to="/watchlist">
-        <button>Watchlist</button>
-      </Link>
+    <div className="navbar-container">
+      <div className="navbar-container-left">
+        <Link to="/">
+          <img
+            className="navbar-logo"
+            src="http://puu.sh/Ja7Xy/3de1287517.png"
+            alt=""
+          />
+        </Link>
+        <Link to="/watchlist">
+          <button>Watchlist</button>
+        </Link>
+      </div>
+      <div className="navbar-container-right">
       <SearchBar />
+      </div>
     </div>
   );
 }

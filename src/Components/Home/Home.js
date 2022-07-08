@@ -3,6 +3,7 @@ import NavBar from "../NavBar/NavBar";
 import Main from "../Main/Main";
 
 function Home() {
+  // handles scrolling parralax effect state
   const [offsetY, setOffsetY] = useState(0);
   const handleScroll = () => setOffsetY(window.pageYOffset);
 
