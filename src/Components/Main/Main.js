@@ -5,7 +5,7 @@ function Main({ offsetY }) {
     <div>
       <div className="background-container">
         <img
-          src="https://puu.sh/J9VBT/b003f525fe.png"
+          src={require("../../images/EverythingBig.png")}
           alt=""
           className="background-image"
           style={{ transform: `translateY(${offsetY * 0.2}px)` }}
