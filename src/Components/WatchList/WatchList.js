@@ -16,32 +16,34 @@ function WatchList() {
   // get inital watchlist data and store it in a state
   useEffect(() => {
     const initialData = async () => {
-      const res = await fetch(`http://localhost:3001/movie/Hullo1247`, {method: "GET"})
-      const data = await res.json()
+      const res = await fetch(`https://movie-api-back.herokuapp.com/movie/Hullo1247`, {
+        method: "GET",
+      });
+      const data = await res.json();
 
       if (res.ok) {
-        setMovieData(data.payload[0].data)
-        console.log(true)
+        setMovieData(data.payload[0].data);
+        console.log(true);
       }
-    }
+    };
     initialData();
-  }, [])
+  }, []);
 
   // sends delete data to be used in useFetch, as well as updating state
   // causing re-render of page without retching inital data again
   const deleteMovieFromList = async (id) => {
     const body = JSON.stringify({ user: "Hullo1247", type: "movie", id: id });
     setDeleteMovieData({
-      url: `http://localhost:3001/movie`,
+      url: `https://movie-api-back.herokuapp.com/movie`,
       method: "DELETE",
       body: body,
-    })
-    setMovieData(movieData.filter((arr) => arr._id !== id))
+    });
+    setMovieData(movieData.filter((arr) => arr._id !== id));
   };
 
   return (
     <div>
-    <NavBar />
+      <NavBar />
       <div className="search-styling">
         {movieData?.map((arr, index) => {
           return (
