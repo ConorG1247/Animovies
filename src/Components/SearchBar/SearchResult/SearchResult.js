@@ -9,7 +9,7 @@ function SearchResult({ movieData }) {
   // sets data on function call to match the movie selected and passes the data
   // to be used by the useFetch hook
   const defineFetchContent = (arr) => {
-    const url = `https://movie-api-back.herokuapp.com/movie`
+    const url = `${process.env.REACT_APP_BACKEND_URL}/movie`
     const method = "POST"
     const body = JSON.stringify({
       type: "movie",

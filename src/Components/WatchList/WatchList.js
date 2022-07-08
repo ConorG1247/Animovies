@@ -16,7 +16,7 @@ function WatchList() {
   // get inital watchlist data and store it in a state
   useEffect(() => {
     const initialData = async () => {
-      const res = await fetch(`https://movie-api-back.herokuapp.com/movie/Hullo1247`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/movie/Hullo1247`, {
         method: "GET",
       });
       const data = await res.json();
