@@ -15,27 +15,14 @@ function NavBar() {
   return (
     <div className="navbar-container">
       <div className="navbar-container-left">
-        <Link to="/">
+        <Link to="/movie">
           <img
             className="navbar-logo"
             src="http://puu.sh/Ja7Xy/3de1287517.png"
             alt=""
           />
         </Link>
-        <div className="navbar-button-padding">
-          <Link to="/watchlist">
-            <Button variant="ghost" colorScheme="whiteAlpha" size="sm">
-              Watchlist
-            </Button>
-          </Link>
-          <Link to="/watchlist">
-            <Button variant="ghost" colorScheme="whiteAlpha" size="sm">
-              Anime
-            </Button>
-          </Link>
-        </div>
-      </div>
-
+        <div className="navbar-hamburger">
       <Menu>
         <MenuButton
           as={IconButton}
@@ -66,6 +53,20 @@ function NavBar() {
           </Link>
         </MenuList>
       </Menu>
+      </div>
+        <div className="navbar-button-padding">
+          <Link to="/watchlist">
+            <Button variant="ghost" colorScheme="whiteAlpha" size="sm">
+              Watchlist
+            </Button>
+          </Link>
+          <Link to="/watchlist">
+            <Button variant="ghost" colorScheme="whiteAlpha" size="sm">
+              Anime
+            </Button>
+          </Link>
+        </div>
+      </div>
       <div className="navbar-container-right">
         <SearchBar />
       </div>

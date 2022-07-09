@@ -1,3 +1,5 @@
+/* sets background of all pages to dark greyy */
+
 html {
   background-color: rgb(36, 35, 35);
 }
@@ -225,6 +227,7 @@ html {
 .navbar-button-padding {
   display: flex;
   padding-top: .3rem;
+  margin-left: -1rem;
 }
 
 /* padding for search element */
@@ -233,6 +236,11 @@ html {
   margin-top: -.25rem;
   max-width: 250px;
   padding-left: 20px;
+}
+
+.navbar-hamburger {
+  display: flex;
+  visibility: hidden;
 }
 
 /* on screen resolution change, alters navbar elements */
@@ -258,8 +266,174 @@ html {
     min-width: 50px;
     max-height: 50px;
   }
+  .navbar-button-padding {
+    visibility: hidden;
+  }
+  .navbar-hamburger {
+    display: flex;
+    visibility: visible;
+    margin-left: -.85rem;
+  }
 }
 
+.selection-container {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ align-items: center;
+ height: 100vh;
+}
 
+.selection-movies {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  height: 100vh;
+  transition: 0.35s;
+}
 
+.selection-movies-poster {
+  object-fit: cover;
+  object-position: 50% 50%;
+  min-width: 100%;
+  min-height: 100vh;
+}
 
+.selection-movies-poster-overlay {
+  display: flex;
+  position: absolute;
+  font-size: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+  width: 50vw;
+  height: 100%;
+  opacity: 0;
+  transition: 0.25s;
+}
+
+.selection-movies-poster-overlay:hover {
+  opacity: 1;
+  width: 60.5%;
+}
+
+.selection-anime {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  height: 100vh;
+  transition: 0.35s;
+}
+
+.selection-anime-poster {
+  object-fit: cover;
+  object-position: 50% 50%;
+  min-width: 100%;
+  min-height: 100vh;
+  transition: .25s;
+}
+
+.selection-anime-poster-overlay {
+  display: flex;
+  position: absolute;
+  font-size: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  right: 0;
+  width: 50vw;
+  height: 100%;
+  opacity: 0;
+  transition: 0.25s;
+}
+
+.selection-anime-poster-overlay:hover {
+  opacity: 1;
+  width: 100%;
+}
+
+@media (max-width: 40rem) {
+  .selection-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .selection-movies {
+    width: 100vw;
+    height: 50vh;
+  }
+  .selection-movies:hover {
+    height: 70vh;
+  }
+  .selection-anime {
+    width: 100vw;
+    height: 50vh;
+  }
+  .selection-anime:hover {
+    height: 70vh;
+  }
+  .selection-movies-poster-overlay {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: row;
+    align-items: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.45);
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 50vh;
+    opacity: 0;
+    transition: 0.25s;
+  }
+  .selection-movies-poster-overlay:hover {
+    opacity: 1;
+    width: 100%;
+    height: 60%;
+    transform: translateY();
+  }
+  .selection-movies-poster {
+    min-width: 100%;
+    min-height: 100%;
+  }
+  .selection-anime-poster-overlay {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: row;
+    align-items: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.45);
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 50vh;
+    opacity: 0;
+    transition: 0.25s;
+  }
+  .selection-anime-poster-overlay:hover {
+    opacity: 1;
+    width: 100%;
+    height: 60%;
+  }
+  .selection-anime-poster {
+    min-width: 100%;
+    min-height: 100%;
+  }
+}
+
+@media (min-width: 40rem) {
+  .selection-movies:hover {
+    width: 60vw;
+  }
+  .selection-anime:hover {
+    width: 60vw;
+    transform: translateX(-60px);
+  }
+}

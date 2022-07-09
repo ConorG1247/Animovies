@@ -15,7 +15,7 @@ function Home() {
 
   return (
     <div>
-      <NavBar />
+      <NavBar style={{ transform: `translateY(${offsetY * 0.2}px)` }}/>
       <br />
       <Main offsetY={offsetY} />
       <div style={{ transform: `translateY(${offsetY * 0.2}px)` }}>
