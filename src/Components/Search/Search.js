@@ -14,7 +14,7 @@ function Search() {
     }
     const searchResultData = async () => {
       const res = await fetch(
-        `https://omdbapi.com/?s=${location.state}${process.env.REACT_APP_API_KEY}`
+        `https://omdbapi.com/?s=${location.state}&type=movie${process.env.REACT_APP_API_KEY}`
       );
       const data = await res.json();
       setMovieData(data.Search);

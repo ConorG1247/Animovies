@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import useFetch from "../../hooks/useFetch";
 import NavBar from "../NavBar/NavBar";
+import { MinusIcon, InfoOutlineIcon } from "@chakra-ui/icons";
+import { IconButton } from "@chakra-ui/react";
 
 function WatchList() {
   const [movieData, setMovieData] = useState();
@@ -47,29 +49,38 @@ function WatchList() {
   return (
     <div>
       <NavBar />
-      <div className="main-container-center">
-      <div className="search-styling">
-        {movieData?.map((arr, index) => {
-          return (
-            <div key={index} className="poster-container">
-              <img
-                className="poster-styling"
-                src={arr.poster}
-                alt={arr.title}
-              />
-              <div className="poster-container-overlay">
-                <div className="poster-container-title">{arr.title}</div>
-                <div className="poster-container-title">{arr.year}</div>
-                <button
-                  className="poster-container-text"
-                  onClick={() => deleteMovieFromList(arr._id)}
-                >
-                  Delete from list
-                </button>
+      <div className="main-container-center-watchlist">
+        <div className="search-styling">
+          {movieData?.map((arr, index) => {
+            return (
+              <div key={index} className="poster-container">
+                <img
+                  className="poster-styling"
+                  src={arr.poster}
+                  alt={arr.title}
+                />
+                <div className="poster-container-overlay">
+                  <div className="poster-container-title">{arr.title}</div>
+                  <div className="poster-container-title">{arr.year}</div>
+                  <div className="poster-button-container">
+                    <IconButton
+                      className="poster-container-text"
+                      onClick={() => deleteMovieFromList(arr._id)}
+                      size="xs"
+                      bg="gray.700"
+                      icon={<MinusIcon color="gray.400"/>}
+                    />
+                    <IconButton
+                      className="poster-button"
+                      size="xs"
+                      bg="gray.700"
+                      icon={<InfoOutlineIcon color="gray.400"/>}
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
         </div>
       </div>
     </div>
