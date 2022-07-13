@@ -344,6 +344,7 @@ html {
 .selection-anime-poster-overlay {
   display: flex;
   position: absolute;
+  color: white;
   font-size: 2rem;
   flex-direction: column;
   justify-content: center;
