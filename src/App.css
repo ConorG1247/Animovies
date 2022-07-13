@@ -408,10 +408,12 @@ html {
 .movieinfo-container-header-seperate {
   padding-right: 2%;
   padding-top: 2.5%;
+  color: white;
 }
 
 .movieinfo-container-header-seperate--title {
   font-size: 1.5rem;
+  color: white;
 }
 
 .movieinfo-container-secondary-header {
@@ -434,6 +436,7 @@ html {
 
 .movieinfo-container-plot-text {
   width: 50%;
+  color: white;
 }
 
 @media (max-width: 40rem) {
