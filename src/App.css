@@ -307,6 +307,7 @@ html {
   display: flex;
   position: absolute;
   font-size: 2rem;
+  color: white;
   flex-direction: column;
   justify-content: center;
   align-items: center;
