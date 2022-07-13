@@ -66,13 +66,13 @@ function WatchList() {
                     <IconButton
                       className="poster-container-text"
                       onClick={() => deleteMovieFromList(arr._id)}
-                      size="xs"
+                      size="sm"
                       bg="gray.700"
                       icon={<MinusIcon color="gray.400"/>}
                     />
                     <IconButton
                       className="poster-button"
-                      size="xs"
+                      size="sm"
                       bg="gray.700"
                       icon={<InfoOutlineIcon color="gray.400"/>}
                     />

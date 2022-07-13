@@ -5,7 +5,7 @@ function Main({ offsetY }) {
     <div>
       <div className="background-container">
         <img
-          src={require("../../images/EverythingBig.png")}
+          src={require("../../images/EverythingEverywhere.jpg")}
           alt=""
           className="background-image"
           style={{ transform: `translateY(${offsetY * 0.2}px)` }}

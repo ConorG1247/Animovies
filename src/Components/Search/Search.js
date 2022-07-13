@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import SearchResult from "../SearchBar/SearchResult/SearchResult";
+import SearchResult from "../SearchResult/SearchResult";
 import NavBar from "../NavBar/NavBar";
 
 function Search() {

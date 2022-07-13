@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useFetch from "../../../hooks/useFetch";
+import useFetch from "../../hooks/useFetch"
 import { IconButton } from "@chakra-ui/react";
 import { AddIcon, InfoOutlineIcon } from "@chakra-ui/icons";
 
@@ -46,13 +46,13 @@ function SearchResult({ movieData }) {
                 <IconButton
                   className="poster-button"
                   onClick={() => defineFetchContent(arr)}
-                  size="xs"
+                  size="sm"
                   bg="gray.700"
                   icon={<AddIcon color="gray.400"/>}
                 />
                 <IconButton
                   className="poster-button"
-                  size="xs"
+                  size="sm"
                   bg="gray.700"
                   icon={<InfoOutlineIcon color="gray.400"/>}
                 />
