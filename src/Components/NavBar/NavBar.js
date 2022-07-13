@@ -28,6 +28,7 @@ function NavBar() {
           as={IconButton}
           variant="ghost"
           colorScheme="whiteAlpha"
+          color="white"
           icon={<HamburgerIcon />}
         />
         <MenuList bg="gray.800" border="gray">
@@ -56,12 +57,12 @@ function NavBar() {
       </div>
         <div className="navbar-button-padding">
           <Link to="/watchlist">
-            <Button variant="ghost" colorScheme="whiteAlpha" size="sm">
+            <Button variant="ghost" colorScheme="whiteAlpha" color="white" size="sm">
               Watchlist
             </Button>
           </Link>
           <Link to="/watchlist">
-            <Button variant="ghost" colorScheme="whiteAlpha" size="sm">
+            <Button variant="ghost" colorScheme="whiteAlpha" color="white" size="sm">
               Anime
             </Button>
           </Link>

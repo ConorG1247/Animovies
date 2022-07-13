@@ -2,6 +2,7 @@ import { useState } from "react";
 import useFetch from "../../hooks/useFetch"
 import { IconButton } from "@chakra-ui/react";
 import { AddIcon, InfoOutlineIcon } from "@chakra-ui/icons";
+import { useNavigate } from "react-router-dom";
 
 function SearchResult({ movieData }) {
   const [fetchContent, setFetchContent] = useState({
@@ -10,6 +11,7 @@ function SearchResult({ movieData }) {
     body: null,
   });
   useFetch(fetchContent.url, fetchContent.method, fetchContent.body);
+  let navigate = useNavigate();
 
   // sets data on function call to match the movie selected and passes the data
   // to be used by the useFetch hook
@@ -18,7 +20,7 @@ function SearchResult({ movieData }) {
     const method = "POST";
     const body = JSON.stringify({
       type: "movie",
-      user: "Hullo1247",
+      user: `${localStorage.getItem("guest")}`,
       title: arr.Title,
       poster: arr.Poster,
       year: arr.Year,
@@ -26,6 +28,13 @@ function SearchResult({ movieData }) {
     });
     setFetchContent({ url: url, method: method, body: body });
   };
+
+  const moreMovieInfo = (id) => {
+    navigate(`/movie/${id}`, {
+      state: id,
+      replace: true,
+    });
+  }
 
   return (
     <div className="search-styling">
@@ -47,13 +56,17 @@ function SearchResult({ movieData }) {
                   className="poster-button"
                   onClick={() => defineFetchContent(arr)}
                   size="sm"
-                  bg="gray.700"
+                  bg="gray.800"
+                  _hover={{ backgroundColor: "gray.700"}}
+                  _active={{ backgroundColor: "gray.500"}}
                   icon={<AddIcon color="gray.400"/>}
                 />
                 <IconButton
-                  className="poster-button"
+                  onClick={() => moreMovieInfo(arr.imdbID)}
                   size="sm"
-                  bg="gray.700"
+                  bg="gray.800"
+                  _hover={{ backgroundColor: "gray.700"}}
+                  _active={{ backgroundColor: "gray.500"}}
                   icon={<InfoOutlineIcon color="gray.400"/>}
                 />
               </div>

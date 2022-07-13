@@ -125,20 +125,23 @@ html {
 }
 
 /* for main background title */
-.background-title {
+.background-description-container {
   position: relative;
-  font-size: .8rem;
+  font-size: .7rem;
   line-height: 2;
-  padding: 0 1rem;
-  margin: 0;
+  padding-left: 1%;
   color: white;
   margin-top: -9.25rem;
-  margin-bottom: 6rem;
   text-shadow: 1px 1px 2px rgba( 0,0,0,0.5);
   max-width: 40%;
   min-width: 310px;
   background-color: rgba( 0,0,0,0.4);
   border-top-right-radius: 3%;
+}
+
+.background-title {
+  font-size: 1rem;
+
 }
 
 /* for main background desc */
@@ -359,6 +362,80 @@ html {
   width: 100%;
 }
 
+.movieinfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(36, 35, 35);
+}
+
+.movieinfo-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 50vw;
+}
+
+.movieinfo-main-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.movieinfo-secondary {
+  display: flex;
+  flex-direction: column;
+}
+
+.movieinfo-container-poster {
+  display: flex;
+  max-width: 230px;
+  min-width: 200px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 2%;
+}
+
+.movieinfo-container-poster-style {
+  object-fit: cover;
+}
+
+.movieinfo-container-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.movieinfo-container-header-seperate {
+  padding-right: 2%;
+  padding-top: 2.5%;
+}
+
+.movieinfo-container-header-seperate--title {
+  font-size: 1.5rem;
+}
+
+.movieinfo-container-secondary-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.movieinfo-container-actors {
+  display: flex;
+  flex-direction: column;
+}
+
+.movieinfo-container-plot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(36, 35, 35);
+  width: 100vw;
+}
+
+.movieinfo-container-plot-text {
+  width: 50%;
+}
+
 @media (max-width: 40rem) {
   .selection-container {
     flex-direction: column;
@@ -428,6 +505,19 @@ html {
     min-width: 100%;
     min-height: 100%;
   }
+  .movieinfo-container {
+    flex-direction: column;
+  }
+  .movieinfo-main-header {
+    width: 100vw;
+  }
+  .movieinfo-container {
+    width: 100vw;
+  }
+  .movieinfo-container-plot-text {
+    width: 100%;
+  }
+
 }
 
 @media (min-width: 40rem) {

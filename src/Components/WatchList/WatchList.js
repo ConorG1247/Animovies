@@ -4,6 +4,7 @@ import useFetch from "../../hooks/useFetch";
 import NavBar from "../NavBar/NavBar";
 import { MinusIcon, InfoOutlineIcon } from "@chakra-ui/icons";
 import { IconButton } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 function WatchList() {
   const [movieData, setMovieData] = useState();
@@ -12,6 +13,7 @@ function WatchList() {
     method: null,
     body: null,
   });
+  let navigate = useNavigate();
 
   useFetch(deleteMovieData.url, deleteMovieData.method, deleteMovieData.body);
 
@@ -19,7 +21,7 @@ function WatchList() {
   useEffect(() => {
     const initialData = async () => {
       const res = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/movie/Hullo1247`,
+        `${process.env.REACT_APP_BACKEND_URL}/movie/${localStorage.getItem("guest")}`,
         {
           method: "GET",
         }
@@ -37,7 +39,7 @@ function WatchList() {
   // sends delete data to be used in useFetch, as well as updating state
   // causing re-render of page without retching inital data again
   const deleteMovieFromList = async (id) => {
-    const body = JSON.stringify({ user: "Hullo1247", type: "movie", id: id });
+    const body = JSON.stringify({ user: `${localStorage.getItem("guest")}`, type: "movie", id: id });
     setDeleteMovieData({
       url: `https://movie-api-back.herokuapp.com/movie`,
       method: "DELETE",
@@ -45,6 +47,13 @@ function WatchList() {
     });
     setMovieData(movieData.filter((arr) => arr._id !== id));
   };
+
+  const moreMovieInfo = (id) => {
+    navigate(`/movie/${id}`, {
+      state: id,
+      replace: true,
+    });
+  }
 
   return (
     <div>
@@ -67,13 +76,17 @@ function WatchList() {
                       className="poster-container-text"
                       onClick={() => deleteMovieFromList(arr._id)}
                       size="sm"
-                      bg="gray.700"
+                      bg="gray.800"
+                      _hover={{ backgroundColor: "gray.700"}}
                       icon={<MinusIcon color="gray.400"/>}
                     />
                     <IconButton
                       className="poster-button"
+                      onClick={() => moreMovieInfo(arr.imdbID)}
                       size="sm"
-                      bg="gray.700"
+                      bg="gray.800"
+                      _hover={{ backgroundColor: "gray.700"}}
+                      _active={{ backgroundColor: "gray.500"}}
                       icon={<InfoOutlineIcon color="gray.400"/>}
                     />
                   </div>
