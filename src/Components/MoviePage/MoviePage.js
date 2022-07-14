@@ -1,9 +1,17 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Button } from "@chakra-ui/react";
+import useFetch from "../../hooks/useFetch"
 import NavBar from "../NavBar/NavBar";
 
 function MoviePage() {
   const [movieData, setMovieData] = useState();
+  const [fetchContent, setFetchContent] = useState({
+    url: null,
+    method: null,
+    body: null,
+  });
+  useFetch(fetchContent.url, fetchContent.method, fetchContent.body);
   let location = useLocation();
 
   useEffect(() => {
@@ -19,6 +27,20 @@ function MoviePage() {
     };
     searchResultData();
   }, [location.state]);
+
+  const defineFetchContent = (arr) => {
+    const url = `${process.env.REACT_APP_BACKEND_URL}/movie`;
+    const method = "POST";
+    const body = JSON.stringify({
+      type: "movie",
+      user: `${localStorage.getItem("guest")}`,
+      title: movieData.Title,
+      poster: movieData.Poster,
+      year: movieData.Year,
+      id: movieData.imdbID,
+    });
+    setFetchContent({ url: url, method: method, body: body });
+  };
 
   return (
     <div>
@@ -46,15 +68,23 @@ function MoviePage() {
             <div className="movieinfo-secondary">
               <div className="movieinfo-container-secondary-header">
                 <div className="movieinfo-container-header-seperate">
-                  {movieData?.Genre}
+                  Genre: {movieData?.Genre}
                 </div>
-                <div className="movieinfo-container-header-seperate">
-                  {movieData?.Rated} {movieData?.Language} {movieData?.Runtime}
+                <div className="movieinfo-container-header-ratings">
+                  <div className="movieinfo-container-header-seperate">
+                    Rated: {movieData?.Rated}
+                  </div>
+                  <div className="movieinfo-container-header-seperate">
+                    Language: {movieData?.Language}
+                  </div>
+                  <div className="movieinfo-container-header-seperate">
+                    Length: {movieData?.Runtime}
+                  </div>
                 </div>
               </div>
               <div className="movieinfo-container-actors">
                 <div className="movieinfo-container-header-seperate">
-                  Directed by {movieData?.Director}
+                  Director: {movieData?.Director}
                 </div>
                 <div className="movieinfo-container-header-seperate">
                   Actors: {movieData?.Actors}
@@ -63,12 +93,23 @@ function MoviePage() {
             </div>
           </div>
         </div>
-      <div className="movieinfo-container-plot">
-      <div className="movieinfo-container-plot-text">
-      <div className="movieinfo-container-header-seperate--title">Synopsis</div>
-      </div>
-        <div className="movieinfo-container-plot-text">{movieData?.Plot}</div>
-      </div>
+        <div className="movieinfo-container-plot">
+          <div className="movieinfo-container-plot-text">
+            <Button
+              onClick={defineFetchContent}
+              bg="blue.800"
+              _hover={{ backgroundColor: "blue.600" }}
+              _active={{ backgroundColor: "blue.500" }}
+              color="white"
+            >
+              Add to watchlist
+            </Button>
+            <div className="movieinfo-container-header-seperate--title-syn">
+              Synopsis
+            </div>
+          </div>
+          <div className="movieinfo-container-plot-text">{movieData?.Plot}</div>
+        </div>
       </div>
     </div>
   );
