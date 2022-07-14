@@ -541,7 +541,7 @@ html {
   }
 }
 
-@media (min-width: 40rem) {
+@media (min-width: 45rem) {
   .selection-movies:hover {
     width: 60vw;
   }
