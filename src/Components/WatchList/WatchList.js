@@ -49,7 +49,7 @@ function WatchList() {
   };
 
   const moreMovieInfo = (id) => {
-    navigate(`/movie/${id}`, {
+    navigate(`/page/${id}`, {
       state: id,
       replace: true,
     });

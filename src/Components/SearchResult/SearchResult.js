@@ -30,7 +30,7 @@ function SearchResult({ movieData }) {
   };
 
   const moreMovieInfo = (id) => {
-    navigate(`/movie/${id}`, {
+    navigate(`/page/${id}`, {
       state: id,
       replace: true,
     });

@@ -1,6 +1,6 @@
 import React from "react";
 
-function Main({ offsetY }) {
+function Main() {
   return (
     <div>
       <div className="background-container">
@@ -8,7 +8,6 @@ function Main({ offsetY }) {
           src={require("../../images/EverythingEverywhere.jpg")}
           alt=""
           className="background-image"
-          style={{ transform: `translateY(${offsetY * 0.2}px)` }}
         />
         <div className="background-container-center">
           <div className="background-colour">

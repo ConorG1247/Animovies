@@ -21,13 +21,14 @@ html {
 /* for results in search, watchlist posters */
 .poster-styling {
   display: flex;
+  object-fit: cover;
   position: relative;
   max-height: 100%;
   max-width: 100%;
   min-height: 20%;
   min-width: 20%;
   border-radius: 2%;
-  border: 1px solid rgba(255, 255, 255, 0.75);
+  border: 1px solid rgb(114, 114, 114);
 }
 
 /* container for search watchlist posters */
@@ -36,9 +37,9 @@ html {
   position: relative;
   justify-content: center;
   max-width: 200px;
+  max-height: 300px;
   min-height: 100px;
   min-width: 80px;
-  min-height: 30px;
   margin: .3em;
   margin-top: 1.5rem;
   filter: drop-shadow(3px 5px 4px rgba( 0,0,0,0.3));
@@ -400,6 +401,8 @@ html {
 
 .movieinfo-container-poster-style {
   object-fit: cover;
+  border-radius: 1%;
+  border: 1px solid rgb(114, 114, 114);
 }
 
 .movieinfo-container-header {
@@ -457,6 +460,45 @@ html {
   color: white;
 }
 
+.new-movies-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(36, 35, 35);
+}
+
+.new-movies-container-poster {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 50%;
+}
+
+.new-movies-poster-title {
+  max-width: 150px;
+  min-width: 150px;
+  padding: 1%;
+  font-size: .7rem;
+  color: white;
+}
+
+.new-movies-poster {
+  border-radius: 3%;
+  border: 1px solid rgb(65, 65, 65);
+  width: 100%;
+  transition: .25s;
+  cursor: pointer;
+}
+
+.new-movies-poster:hover {
+  width: 95%;
+}
+
+.new-movies-title {
+  font-size: 1.5rem;
+  color: white;
+}
+
 @media (max-width: 40rem) {
   .selection-container {
     flex-direction: column;
@@ -478,19 +520,10 @@ html {
     height: 70vh;
   }
   .selection-movies-poster-overlay {
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    justify-content: row;
-    align-items: center;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.45);
     top: 0;
     right: 0;
     width: 100%;
     height: 50vh;
-    opacity: 0;
-    transition: 0.25s;
   }
   .selection-movies-poster-overlay:hover {
     opacity: 1;
@@ -503,19 +536,8 @@ html {
     min-height: 100%;
   }
   .selection-anime-poster-overlay {
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    justify-content: row;
-    align-items: center;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.45);
-    bottom: 0;
-    right: 0;
     width: 100%;
     height: 50vh;
-    opacity: 0;
-    transition: 0.25s;
   }
   .selection-anime-poster-overlay:hover {
     opacity: 1;
@@ -539,9 +561,12 @@ html {
   .movieinfo-container-plot-text {
     width: 90%;
   }
+  .new-movies-container-poster {
+    width: 100%;
+  }
 }
 
-@media (min-width: 45rem) {
+@media (min-width: 40.1rem) {
   .selection-movies:hover {
     width: 60vw;
   }
@@ -550,3 +575,5 @@ html {
     transform: translateX(-60px);
   }
 }
+
+
