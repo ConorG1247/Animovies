@@ -27,6 +27,7 @@ function SearchResult({ movieData }) {
       id: arr.imdbID,
     });
     setFetchContent({ url: url, method: method, body: body });
+    localStorage.setItem("check", true)
   };
 
   const moreMovieInfo = (id) => {

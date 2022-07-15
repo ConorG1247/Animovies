@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 function WatchList() {
   const [movieData, setMovieData] = useState();
-  const [guestUser] = useState(localStorage.getItem("guest"));
+
   const [deleteMovieData, setDeleteMovieData] = useState({
     url: null,
     method: null,
@@ -20,6 +20,10 @@ function WatchList() {
 
   // get inital watchlist data and store it in a state
   useEffect(() => {
+    if (localStorage.getItem("check") === "false") {
+      return;
+    }
+    const guestUser = localStorage.getItem("guest");
     const initialData = async () => {
       const res = await fetch(
         `${process.env.REACT_APP_BACKEND_URL}/movie/${guestUser}`,
@@ -35,7 +39,7 @@ function WatchList() {
       }
     };
     initialData();
-  }, [guestUser]);
+  }, []);
 
   // sends delete data to be used in useFetch, as well as updating state
   // causing re-render of page without retching inital data again

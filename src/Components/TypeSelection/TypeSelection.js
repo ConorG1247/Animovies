@@ -4,6 +4,7 @@ import { useEffect } from "react";
 function TypeSelection() {
 
 useEffect(() => {
+  localStorage.setItem("check", false)
   if (localStorage.getItem("guest")) {
     return
   }
