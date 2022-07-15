@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 function WatchList() {
   const [movieData, setMovieData] = useState();
+  const [guestUser] = useState(localStorage.getItem("guest"));
   const [deleteMovieData, setDeleteMovieData] = useState({
     url: null,
     method: null,
@@ -21,7 +22,7 @@ function WatchList() {
   useEffect(() => {
     const initialData = async () => {
       const res = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/movie/${localStorage.getItem("guest")}`,
+        `${process.env.REACT_APP_BACKEND_URL}/movie/${guestUser}`,
         {
           method: "GET",
         }
@@ -34,12 +35,16 @@ function WatchList() {
       }
     };
     initialData();
-  }, []);
+  }, [guestUser]);
 
   // sends delete data to be used in useFetch, as well as updating state
   // causing re-render of page without retching inital data again
   const deleteMovieFromList = async (id) => {
-    const body = JSON.stringify({ user: `${localStorage.getItem("guest")}`, type: "movie", id: id });
+    const body = JSON.stringify({
+      user: `${localStorage.getItem("guest")}`,
+      type: "movie",
+      id: id,
+    });
     setDeleteMovieData({
       url: `https://movie-api-back.herokuapp.com/movie`,
       method: "DELETE",
@@ -53,48 +58,44 @@ function WatchList() {
       state: id,
       replace: true,
     });
-  }
+  };
 
   return (
     <div>
       <NavBar />
-      <div className="main-container-center-watchlist">
-        <div className="search-styling">
-          {movieData?.map((arr, index) => {
-            return (
-              <div key={index} className="poster-container">
-                <img
-                  className="poster-styling"
-                  src={arr.poster}
-                  alt={arr.title}
-                />
-                <div className="poster-container-overlay">
-                  <div className="poster-container-title">{arr.title}</div>
-                  <div className="poster-container-title">{arr.year}</div>
-                  <div className="poster-button-container">
-                    <IconButton
-                      className="poster-container-text"
-                      onClick={() => deleteMovieFromList(arr._id)}
-                      size="sm"
-                      bg="gray.800"
-                      _hover={{ backgroundColor: "gray.700"}}
-                      icon={<MinusIcon color="gray.400"/>}
-                    />
-                    <IconButton
-                      className="poster-button"
-                      onClick={() => moreMovieInfo(arr.imdbID)}
-                      size="sm"
-                      bg="gray.800"
-                      _hover={{ backgroundColor: "gray.700"}}
-                      _active={{ backgroundColor: "gray.500"}}
-                      icon={<InfoOutlineIcon color="gray.400"/>}
-                    />
-                  </div>
+      <div className="watchlist-container-poster">
+        {movieData?.map((arr, index) => {
+          return (
+            <div key={index} className="watchlist-poster-title">
+              <img
+                className="new-movies-poster"
+                src={arr.poster}
+                alt={arr.title}
+                onClick={() => moreMovieInfo(arr.imdbID)}
+              />
+              <div className="watchlist-info-container">
+                <div>
+                  {arr.title} ({arr.year})
+                </div>
+                <div className="watchlist-info-container-buttons">
+                  <IconButton
+                    size="xs"
+                    colorScheme="red"
+                    bgColor="red.700"
+                    onClick={() => deleteMovieFromList(arr._id)}
+                    icon={<MinusIcon color="white" />}
+                  />
+                  <IconButton
+                    size="xs"
+                    colorScheme="blue"
+                    onClick={() => moreMovieInfo(arr.imdbID)}
+                    icon={<InfoOutlineIcon color="white" />}
+                  />
                 </div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

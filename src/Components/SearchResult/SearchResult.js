@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useFetch from "../../hooks/useFetch"
+import useFetch from "../../hooks/useFetch";
 import { IconButton } from "@chakra-ui/react";
 import { AddIcon, InfoOutlineIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
@@ -34,40 +34,36 @@ function SearchResult({ movieData }) {
       state: id,
       replace: true,
     });
-  }
+  };
 
   return (
-    <div className="search-styling">
+    <div className="new-movies-container-poster">
       {movieData?.map((arr, index) => {
-        if (
-          arr === "Movie not found!" ||
-          arr === "Please enter a movie title."
-        ) {
-          return <div key={index}>{arr}</div>;
-        }
         return (
-          <div key={index} className="poster-container">
-            <img className="poster-styling" src={arr.Poster} alt={arr.Title} />
-            <div className="poster-container-overlay">
-              <div className="poster-container-title">{arr.Title}</div>
-              <div className="poster-container-title">{arr.Year}</div>
-              <div className="poster-button-container">
+          <div key={index} className="watchlist-poster-title">
+            <img
+              className="new-movies-poster"
+              src={arr.Poster}
+              alt={arr.Title}
+              onClick={() => moreMovieInfo(arr.imdbID)}
+            />
+            <div className="watchlist-info-container">
+              <div>
+                {arr.Title} ({arr.Year})
+              </div>
+              <div className="watchlist-info-container-buttons">
                 <IconButton
-                  className="poster-button"
+                  size="xs"
+                  colorScheme="green"
+                  bgColor="green"
                   onClick={() => defineFetchContent(arr)}
-                  size="sm"
-                  bg="gray.800"
-                  _hover={{ backgroundColor: "gray.700"}}
-                  _active={{ backgroundColor: "gray.500"}}
-                  icon={<AddIcon color="gray.400"/>}
+                  icon={<AddIcon color="white" />}
                 />
                 <IconButton
+                  size="xs"
+                  colorScheme="blue"
                   onClick={() => moreMovieInfo(arr.imdbID)}
-                  size="sm"
-                  bg="gray.800"
-                  _hover={{ backgroundColor: "gray.700"}}
-                  _active={{ backgroundColor: "gray.500"}}
-                  icon={<InfoOutlineIcon color="gray.400"/>}
+                  icon={<InfoOutlineIcon color="white" />}
                 />
               </div>
             </div>

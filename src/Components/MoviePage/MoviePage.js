@@ -28,7 +28,7 @@ function MoviePage() {
     searchResultData();
   }, [location.state]);
 
-  const defineFetchContent = (arr) => {
+  const defineFetchContent = () => {
     const url = `${process.env.REACT_APP_BACKEND_URL}/movie`;
     const method = "POST";
     const body = JSON.stringify({
@@ -61,7 +61,7 @@ function MoviePage() {
                   {movieData?.Title}
                 </div>
                 <div className="movieinfo-container-header-seperate">
-                  Realeased: {movieData?.Year} ⭐{movieData?.imdbRating}
+                  Released: {movieData?.Year} ⭐{movieData?.imdbRating}
                 </div>
               </div>
             </div>
@@ -96,7 +96,7 @@ function MoviePage() {
         <div className="movieinfo-container-plot">
           <div className="movieinfo-container-plot-text">
             <Button
-              onClick={defineFetchContent}
+              onClick={() => defineFetchContent()}
               bg="blue.800"
               _hover={{ backgroundColor: "blue.600" }}
               _active={{ backgroundColor: "blue.500" }}

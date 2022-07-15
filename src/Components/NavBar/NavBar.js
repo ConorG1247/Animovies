@@ -38,6 +38,7 @@ function NavBar() {
               color="whitesmoke"
               _hover={{ bg: "gray.700" }}
               _expanded={{ bg: "gray.400" }}
+              _focus={{bg: "gray.700"}}
             >
               Anime
             </MenuItem>
@@ -46,6 +47,7 @@ function NavBar() {
               color="whitesmoke"
               _hover={{ bg: "gray.700" }}
               _expanded={{ bg: "gray.400" }}
+              _focus={{bg: "gray.700"}}
             >
               Watchlist
             </MenuItem>
