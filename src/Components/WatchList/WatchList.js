@@ -64,6 +64,17 @@ function WatchList() {
     });
   };
 
+  if (movieData?.length === 0) {
+    return (
+      <div>
+        <NavBar />
+        <div className="watchlist-empty-container"> 
+        <div className="new-movies-title">It's looking pretty empty in here...</div>
+        <p>try adding something to watch!</p>
+        </div>
+      </div>
+    );
+  }
   return (
     <div>
       <NavBar />

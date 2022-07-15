@@ -142,7 +142,6 @@ html {
 
 .background-title {
   font-size: 1rem;
-
 }
 
 /* for main background desc */
@@ -501,6 +500,13 @@ html {
   color: white;
 }
 
+.watchlist-empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(36, 35, 35);
+}
+
 .watchlist-poster-title {
   display: flex;
   flex-direction: column;
@@ -531,6 +537,54 @@ html {
   justify-content: flex-end;
   width: 50%;
 }
+
+.random-container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  background-color: rgb(36, 35, 35);
+}
+
+.random-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  color: white;
+}
+
+.random-main {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 3%;
+  width: 50%;
+  padding-bottom: 5%;
+}
+
+.random-poster-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 250px;
+  min-width: 150px;
+  padding: 1%;
+  font-size: .7rem;
+  color: white;
+}
+
+.random-poster {
+  border-radius: 3%;
+  border: 1px solid rgb(65, 65, 65);
+  width: 100%;
+  transition: 250ms;
+  cursor: pointer;
+}
+
+.random-poster:hover {
+  border: 4px solid limegreen;
+  padding-bottom: 1.5%;
+}
+
 
 @media (max-width: 40rem) {
   .selection-container {
@@ -595,6 +649,9 @@ html {
     width: 90%;
   }
   .new-movies-container-poster {
+    width: 100%;
+  }
+  .random-main {
     width: 100%;
   }
 }

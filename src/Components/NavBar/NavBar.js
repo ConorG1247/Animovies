@@ -51,15 +51,27 @@ function NavBar() {
             >
               Watchlist
             </MenuItem>
+            <MenuItem
+              onClick={() => navigate(`/random`)}
+              color="whitesmoke"
+              _hover={{ bg: "gray.700" }}
+              _expanded={{ bg: "gray.400" }}
+              _focus={{bg: "gray.700"}}
+            >
+              Random
+            </MenuItem>
         </MenuList>
       </Menu>
       </div>
         <div className="navbar-button-padding">
             <Button onClick={() => navigate(`/watchlist`)} variant="ghost" colorScheme="whiteAlpha" color="white" size="sm">
-              Watchlist
+              Anime
             </Button>
             <Button onClick={() => navigate(`/watchlist`)} variant="ghost" colorScheme="whiteAlpha" color="white" size="sm">
-              Anime
+              Watchlist
+            </Button>
+            <Button onClick={() => navigate(`/random`)} variant="ghost" colorScheme="whiteAlpha" color="white" size="sm">
+              Random
             </Button>
         </div>
       </div>
