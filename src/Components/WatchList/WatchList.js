@@ -20,7 +20,8 @@ function WatchList() {
 
   // get inital watchlist data and store it in a state
   useEffect(() => {
-    if (localStorage.getItem("check") === "false") {
+    if (localStorage.getItem("check") === "empty") {
+      console.log(true)
       return;
     }
     const guestUser = localStorage.getItem("guest");
@@ -64,7 +65,7 @@ function WatchList() {
     });
   };
 
-  if (movieData?.length === 0) {
+  if (movieData?.length === 0 || localStorage.getItem("check") === "empty") {
     return (
       <div>
         <NavBar />
