@@ -2,7 +2,7 @@
 function AnimeSimilar({ data, moreMovieInfo }) {
   return (
     <div className="new-movies-container">
-      <div className="new-movies-title">Similar Reccomendations</div>
+      <div className="new-movies-title">Similar Recommendations</div>
       <div className="new-movies-container-poster">
         {data?.map((arr, index) => {
           return (

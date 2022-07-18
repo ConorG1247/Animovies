@@ -29,6 +29,8 @@ function AnimePage() {
     searchResultData();
   }, [location.state]);
 
+  console.log(animeData)
+
   const defineFetchContent = () => {
     const url = `${process.env.REACT_APP_BACKEND_URL}/update`;
     const method = "POST";

@@ -677,10 +677,36 @@ cursor: pointer;
   font-size: .7em;
 }
 
-.anime-container-reccomend {
+.anime-container-recommend {
   width: 100%;
   color: var(--main-text-colour);
   font-size: .7em;
+}
+
+.anime-container-OPED {
+  width: 50%;
+  color: var(--main-text-colour);
+  font-size: .7em;
+}
+
+.anime-OPED-title {
+  font-size: 1.2em;
+}
+
+.anime-OPED-padding {
+  padding-top: 20px;
+  color: var(--main-text-colour);
+}
+
+.anime-trailer {
+  padding-top: 20px;
+  color: var(--main-text-colour);
+  width: 50%;
+}
+
+.anime-trailer-dimensions {
+  width: 50vw;
+  height: 50vh;
 }
 
 .anime-hidden {
@@ -761,6 +787,17 @@ cursor: pointer;
   }
   .anime-button-container {
     width: 90%;
+  }
+  .anime-container-OPED {
+    width: 90%;
+  }
+  .anime-trailer {
+    width: 100%;
+  }
+  
+  .anime-trailer-dimensions {
+    width: 100vw;
+    height: 50vh;
   }
 }
 
