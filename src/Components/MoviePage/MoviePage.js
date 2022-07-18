@@ -27,7 +27,7 @@ function MoviePage() {
     };
     searchResultData();
   }, [location.state]);
-
+  
   const defineFetchContent = () => {
     const url = `${process.env.REACT_APP_BACKEND_URL}/update`;
     const method = "POST";
@@ -37,7 +37,7 @@ function MoviePage() {
       title: movieData.Title,
       poster: movieData.Poster,
       year: movieData.Year,
-      id: movieData.id,
+      id: movieData.imdbID,
     });
     setFetchContent({ url: url, method: method, body: body });
     localStorage.setItem("check", "full")
