@@ -1,10 +1,10 @@
 import { useState } from "react";
-import useFetch from "../../hooks/useFetch";
+import useFetch from "../../../../hooks/useFetch"
 import { IconButton } from "@chakra-ui/react";
 import { AddIcon, InfoOutlineIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
 
-function SearchResult({ movieData }) {
+function AnimeSearchResult({ animeData }) {
   const [fetchContent, setFetchContent] = useState({
     url: null,
     method: null,
@@ -19,19 +19,19 @@ function SearchResult({ movieData }) {
     const url = `${process.env.REACT_APP_BACKEND_URL}/update`;
     const method = "POST";
     const body = JSON.stringify({
-      type: "movie",
+      type: "anime",
       user: `${localStorage.getItem("guest")}`,
-      title: arr.Title,
-      poster: arr.Poster,
-      year: arr.Year,
-      id: arr.imdbID,
+      title: arr.title,
+      poster: arr.images.jpg.image_url,
+      year: arr.year,
+      id: arr.mal_id,
     });
     setFetchContent({ url: url, method: method, body: body });
     localStorage.setItem("check", "full")
   };
 
   const moreMovieInfo = (id) => {
-    navigate(`/page/${id}`, {
+    navigate(`/anime/page/${id}`, {
       state: id,
       replace: true,
     });
@@ -39,18 +39,19 @@ function SearchResult({ movieData }) {
 
   return (
     <div className="new-movies-container-poster">
-      {movieData?.map((arr, index) => {
+      {animeData?.map((arr, index) => {
         return (
           <div key={index} className="watchlist-poster-title">
+          <div onClick={() => moreMovieInfo(arr.mal_id)} className="rating-anime">⭐{arr.score}</div>
             <img
               className="new-movies-poster"
-              src={arr.Poster}
-              alt={arr.Title}
-              onClick={() => moreMovieInfo(arr.imdbID)}
+              src={arr.images.jpg.image_url}
+              alt={arr.title}
+              onClick={() => moreMovieInfo(arr.mal_id)}
             />
             <div className="watchlist-info-container">
-              <div>
-                {arr.Title} ({arr.Year})
+              <div onClick={() => moreMovieInfo(arr.mal_id)}>
+                {arr.title} ({arr.year})
               </div>
               <div className="watchlist-info-container-buttons">
                 <IconButton
@@ -63,7 +64,7 @@ function SearchResult({ movieData }) {
                 <IconButton
                   size="xs"
                   colorScheme="blue"
-                  onClick={() => moreMovieInfo(arr.imdbID)}
+                  onClick={() => moreMovieInfo(arr.mal_id)}
                   icon={<InfoOutlineIcon color="white" />}
                 />
               </div>
@@ -75,4 +76,4 @@ function SearchResult({ movieData }) {
   );
 }
 
-export default SearchResult;
+export default AnimeSearchResult;

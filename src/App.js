@@ -6,6 +6,11 @@ import Search from "./Components/Search/Search";
 import TypeSelection from "./Components/TypeSelection/TypeSelection";
 import MoviePage from "./Components/MoviePage/MoviePage";
 import RandomMovie from "./Components/RandomMovie/RandomMovie";
+import AnimeHome from "./Components/Anime/AnimeHome/AnimeHome";
+import AnimeWatchlist from "./Components/Anime/AnimeWatchlist/AnimeWatchlist"
+import AnimePage from "./Components/Anime/AnimePage/AnimePage"
+import AnimeRandom from "./Components/Anime/AnimeRandom/AnimeRandom"
+import AnimeSearch from "./Components/Anime/AnimeSearch/AnimeSearch"
 
 function App() {
 
@@ -18,6 +23,12 @@ function App() {
         <Route path="/random" element={<RandomMovie />} />
         <Route path="/search/:userId" element={<Search />} />
         <Route path="/page/:userId" element={<MoviePage />} />
+        
+        <Route path="/anime" element={<AnimeHome />} />
+        <Route path="/anime/watchlist" element={<AnimeWatchlist />} />
+        <Route path="/anime/random" element={<AnimeRandom />} />
+        <Route path="/anime/search/:userId" element={<AnimeSearch />} />
+        <Route path="/anime/page/:userId" element={<AnimePage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,22 +1,23 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import useFetch from "../../hooks/useFetch";
-import NavBar from "../NavBar/NavBar";
+import useFetch from "../../../hooks/useFetch";
+import AnimeNavbar from "../AnimeNavbar/AnimeNavbar"
 import { MinusIcon, InfoOutlineIcon } from "@chakra-ui/icons";
 import { IconButton } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
-function WatchList() {
-  const [movieData, setMovieData] = useState();
+function AnimeWatchlist() {
+  const [animeData, setAnimeData] = useState();
 
-  const [deleteMovieData, setDeleteMovieData] = useState({
+  const [deleteAnimeData, setDeleteAnimeData] = useState({
     url: null,
     method: null,
     body: null,
   });
+  
   let navigate = useNavigate();
 
-  useFetch(deleteMovieData.url, deleteMovieData.method, deleteMovieData.body);
+  useFetch(deleteAnimeData.url, deleteAnimeData.method, deleteAnimeData.body);
 
   // get inital watchlist data and store it in a state
   useEffect(() => {
@@ -27,7 +28,7 @@ function WatchList() {
     const guestUser = localStorage.getItem("guest");
     const initialData = async () => {
       const res = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/movie/${guestUser}`,
+        `${process.env.REACT_APP_BACKEND_URL}/anime/${guestUser}`,
         {
           method: "GET",
         }
@@ -35,7 +36,7 @@ function WatchList() {
       const data = await res.json();
 
       if (res.ok) {
-        setMovieData(data.payload[0].data);
+        setAnimeData(data.payload[0].data);
         console.log(true);
       }
     };
@@ -47,28 +48,28 @@ function WatchList() {
   const deleteMovieFromList = async (id) => {
     const body = JSON.stringify({
       user: `${localStorage.getItem("guest")}`,
-      type: "movie",
+      type: "anime",
       id: id,
     });
-    setDeleteMovieData({
+    setDeleteAnimeData({
       url: `${process.env.REACT_APP_BACKEND_URL}/delete`,
       method: "DELETE",
       body: body,
     });
-    setMovieData(movieData.filter((arr) => arr._id !== id));
+    setAnimeData(animeData.filter((arr) => arr._id !== id));
   };
 
   const moreMovieInfo = (id) => {
-    navigate(`/page/${id}`, {
+    navigate(`/anime/page/${id}`, {
       state: id,
       replace: true,
     });
   };
 
-  if (movieData?.length === 0 || localStorage.getItem("check") === "empty") {
+  if (animeData?.length === 0 || localStorage.getItem("check") === "empty") {
     return (
       <div>
-        <NavBar type="Anime"/>
+        <AnimeNavbar type="Movies"/>
         <div className="watchlist-empty-container"> 
         <div className="new-movies-title">It's looking pretty empty in here...</div>
         <p>try adding something to watch!</p>
@@ -76,11 +77,11 @@ function WatchList() {
       </div>
     );
   }
-  return (
+  return ( 
     <div>
-      <NavBar/>
+      <AnimeNavbar type="Movies"/>
       <div className="watchlist-container-poster">
-        {movieData?.map((arr, index) => {
+        {animeData?.map((arr, index) => {
           return (
             <div key={index} className="watchlist-poster-title">
               <img
@@ -117,4 +118,4 @@ function WatchList() {
   );
 }
 
-export default WatchList;
+export default AnimeWatchlist;

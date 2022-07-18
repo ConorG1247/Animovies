@@ -18,7 +18,7 @@ function RandomMovie() {
   const navigate = useNavigate();
 
   const defineFetchContent = (arr) => {
-    const url = `${process.env.REACT_APP_BACKEND_URL}/movie`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/update`;
     const method = "POST";
     const body = JSON.stringify({
       type: "movie",
@@ -79,6 +79,7 @@ function RandomMovie() {
             </Button>
           </div>
          {randomData && <div className="random-poster-title">
+              <div className="rating-random">⭐{randomData?.imDbRating}</div>
               <img
                 className="random-poster"
                 src={randomData?.image}
@@ -87,7 +88,7 @@ function RandomMovie() {
               />
               <div className="watchlist-info-container">
                 <div onClick={() => moreMovieInfo(randomData?.id)}>
-                  {randomData?.fullTitle} ⭐{randomData?.imDbRating}
+                  {randomData?.fullTitle}
                 </div>
                 <div className="watchlist-info-container-buttons">
                   <IconButton

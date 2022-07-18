@@ -251,38 +251,7 @@ html {
   visibility: hidden;
 }
 
-/* on screen resolution change, alters navbar elements */
-@media (max-width: 41em) {
-  .navbar-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
-  .navbar-container-left {
-    display: flex;
-    flex-direction: row;
-  }
-  .navbar-search-padding {
-    display: flex;
-    margin-top: -.25rem;
-    max-width: 250px;
-  }
-  .navbar-container-right {
-    display: flex;
-    justify-content: flex-start;
-    padding-top: .5rem;
-    min-width: 50px;
-    max-height: 50px;
-  }
-  .navbar-button-padding {
-    visibility: hidden;
-  }
-  .navbar-hamburger {
-    display: flex;
-    visibility: visible;
-    margin-left: -.85rem;
-  }
-}
+/* STYLING FOR ALL CLASSES IN ANIME OR MOVIE SELECTION PAGE */
 
 .selection-container {
  display: flex;
@@ -368,6 +337,8 @@ html {
   opacity: 1;
   width: 100%;
 }
+
+/* STYLING FOR ALL CLASSES IN MOVIE INFO PAGE */
 
 .movieinfo {
   display: flex;
@@ -462,7 +433,10 @@ html {
 .movieinfo-container-plot-text {
   width: 50%;
   color: var(--main-text-colour);
+  font-size: .7em;
 }
+
+/* STYLING FOR ALL CLASSES IN NEW MOVIES SECTION OF HOMEPAGE */
 
 .new-movies-container {
   display: flex;
@@ -492,6 +466,11 @@ html {
   cursor: pointer;
 }
 
+.new-movies-poster-title:hover .rating {
+  color: white;
+  cursor: pointer;
+}
+
 .new-movies-poster {
   border-radius: 3%;
   border: 1px solid rgb(65, 65, 65);
@@ -510,6 +489,15 @@ html {
   font-size: 1.5rem;
   color: var(--main-text-colour);
 }
+
+.rating {
+  position: absolute;
+  background-color: rgb(35, 35, 35, 0.5);
+  padding: .3%;
+  border-radius: 5px;
+}
+
+/* STYLING FOR UPDATED STYLING IN WATCHLIST PAGE */
 
 .watchlist-empty-container {
   display: flex;
@@ -536,6 +524,11 @@ color: var(--hover-title-colour);
 cursor: pointer;
 }
 
+.watchlist-poster-title:hover .rating-anime {
+  color: white;
+  cursor: pointer;
+  }
+
 .watchlist-container-poster {
   display: flex;
   flex-wrap: wrap;
@@ -556,6 +549,8 @@ cursor: pointer;
   width: 50%;
 }
 
+
+/* STYLING FOR ALL CLASSES IN RANDOM PAGE */
 .random-container {
   display: flex;
   justify-content: center;
@@ -593,7 +588,12 @@ cursor: pointer;
 .random-poster-title:hover {
   color: var(--hover-title-colour);
   cursor: pointer;
-  }
+}
+
+.random-poster-title:hover .rating-random {
+  color: white;
+   cursor: pointer;
+}
 
 .random-poster {
   border-radius: 3%;
@@ -608,6 +608,85 @@ cursor: pointer;
   padding-bottom: 1.5%;
 }
 
+.rating-random {
+  position: absolute;
+  background-color: rgb(35, 35, 35, 0.5);
+  padding: .3%;
+  left: 33.5%;
+  border-radius: 5px;
+}
+
+/* ANIME */
+
+.anime-background-image {
+  object-fit: cover;
+  object-position: 50% 50%;
+  max-height: 39vh;
+  min-width: 100%;
+  min-height: 300px;
+}
+
+.rating-anime {
+  position: absolute;
+  background-color: rgb(35, 35, 35, 0.5);
+  padding: .3%;
+  margin-left: -130px;
+  border-radius: 5px;
+}
+
+.anime-container-more-button {
+  display: flex;
+  flex-direction:row;
+  margin-top: 2%;
+}
+
+.anime-container-more-button--padding {
+  color: var(--main-text-colour);
+  border-radius: 5px;
+  padding: 1% 5px 1% 5px;
+}
+
+.anime-selected {
+  transition: 350ms;
+  background-color: rgb(42, 143, 143);
+}
+
+.anime-container-more-button--padding:hover {
+  transition: 350ms;
+  background-color: rgb(55, 176, 176);
+}
+
+.anime-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 50%;
+}
+
+.anime-container-plot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--main-background-colour);
+  width: 100vw;
+}
+
+.anime-container-plot-text {
+  width: 50%;
+  color: var(--main-text-colour);
+  font-size: .7em;
+}
+
+.anime-container-reccomend {
+  width: 100%;
+  color: var(--main-text-colour);
+  font-size: .7em;
+}
+
+.anime-hidden {
+  visibility: hidden;
+  height: 1px;
+}
 
 @media (max-width: 40rem) {
   .selection-container {
@@ -620,14 +699,14 @@ cursor: pointer;
     height: 50vh;
   }
   .selection-movies:hover {
-    height: 70vh;
+    height: 60vh;
   }
   .selection-anime {
     width: 100vw;
     height: 50vh;
   }
   .selection-anime:hover {
-    height: 70vh;
+    height: 60vh;
   }
   .selection-movies-poster-overlay {
     top: 0;
@@ -638,7 +717,7 @@ cursor: pointer;
   .selection-movies-poster-overlay:hover {
     opacity: 1;
     width: 100%;
-    height: 60%;
+    height: 55%;
     transform: translateY();
   }
   .selection-movies-poster {
@@ -652,7 +731,7 @@ cursor: pointer;
   .selection-anime-poster-overlay:hover {
     opacity: 1;
     width: 100%;
-    height: 60%;
+    height: 55%;
   }
   .selection-anime-poster {
     min-width: 100%;
@@ -677,6 +756,12 @@ cursor: pointer;
   .random-main {
     width: 100%;
   }
+  .anime-container-plot-text {
+    width: 90%;
+  }
+  .anime-button-container {
+    width: 90%;
+  }
 }
 
 @media (min-width: 40.1rem) {
@@ -689,4 +774,43 @@ cursor: pointer;
   }
 }
 
+@media (max-width: 52.5rem) {
+  .navbar-container-left {
+    padding-right: 40%;
+  }
+}
+
+/* on screen resolution change, alters navbar elements */
+@media (max-width: 41em) {
+  .navbar-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .navbar-container-left {
+    display: flex;
+    flex-direction: row;
+    padding-right: 0%;
+  }
+  .navbar-search-padding {
+    display: flex;
+    margin-top: -.25rem;
+    margin-left: 15%;
+    max-width: 220px;
+  }
+  .navbar-container-right {
+    justify-content: flex-start;
+    padding-top: .5rem;
+    min-width: 50px;
+    max-height: 50px;
+  }
+  .navbar-button-padding {
+    visibility: hidden;
+  }
+  .navbar-hamburger {
+    display: flex;
+    visibility: visible;
+    margin-left: -.85rem;
+  }
+}
 

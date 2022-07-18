@@ -29,7 +29,7 @@ function MoviePage() {
   }, [location.state]);
 
   const defineFetchContent = () => {
-    const url = `${process.env.REACT_APP_BACKEND_URL}/movie`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/update`;
     const method = "POST";
     const body = JSON.stringify({
       type: "movie",
@@ -37,7 +37,7 @@ function MoviePage() {
       title: movieData.Title,
       poster: movieData.Poster,
       year: movieData.Year,
-      id: movieData.imdbID,
+      id: movieData.id,
     });
     setFetchContent({ url: url, method: method, body: body });
     localStorage.setItem("check", "full")
