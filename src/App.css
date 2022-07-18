@@ -612,7 +612,7 @@ cursor: pointer;
   position: absolute;
   background-color: rgb(35, 35, 35, 0.5);
   padding: .3%;
-  left: 33.5%;
+  margin-left: -204px;
   border-radius: 5px;
 }
 

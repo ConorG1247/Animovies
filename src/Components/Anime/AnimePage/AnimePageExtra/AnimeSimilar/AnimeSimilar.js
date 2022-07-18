@@ -1,3 +1,4 @@
+
 function AnimeSimilar({ data, moreMovieInfo }) {
   return (
     <div className="new-movies-container">
