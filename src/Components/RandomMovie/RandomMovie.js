@@ -86,7 +86,7 @@ function RandomMovie() {
                 onClick={() => moreMovieInfo(randomData?.id)}
               />
               <div className="watchlist-info-container">
-                <div>
+                <div onClick={() => moreMovieInfo(randomData?.id)}>
                   {randomData?.fullTitle} ⭐{randomData?.imDbRating}
                 </div>
                 <div className="watchlist-info-container-buttons">

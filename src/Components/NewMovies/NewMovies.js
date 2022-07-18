@@ -17,14 +17,13 @@ function NewMovies() {
       <div className="new-movies-container-poster">
         {data.items.slice(0, 10)?.map((arr, index) => {
           return (
-            <div key={index} className="new-movies-poster-title">
+            <div key={index} onClick={() => moreMovieInfo(arr.id)} className="new-movies-poster-title">
               <img
                 className="new-movies-poster"
                 src={arr.image}
                 alt={arr.fullTitle}
-                onClick={() => moreMovieInfo(arr.id)}
               />
-              <div>{arr.fullTitle}</div>
+              <div >{arr.fullTitle}</div>
               <div>⭐{arr.imDbRating}</div>
             </div>
           );

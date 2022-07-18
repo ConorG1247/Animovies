@@ -90,7 +90,7 @@ function WatchList() {
                 onClick={() => moreMovieInfo(arr.imdbID)}
               />
               <div className="watchlist-info-container">
-                <div>
+                <div onClick={() => moreMovieInfo(arr.imdbID)}>
                   {arr.title} ({arr.year})
                 </div>
                 <div className="watchlist-info-container-buttons">
