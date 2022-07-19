@@ -16,7 +16,6 @@ function AnimePageExtra({ animeData, id }) {
         );
         const data = await res.json();
         setAnimeRec(data.data.slice(0, 20));
-        console.log(true);
       }
     };
     animeRecommend();

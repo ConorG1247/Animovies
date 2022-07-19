@@ -15,7 +15,7 @@ function NewMovies() {
     <div className="new-movies-container">
       <div className="new-movies-title">New Movie Releases</div>
       <div className="new-movies-container-poster">
-        {data.items.slice(0, 10)?.map((arr, index) => {
+        {data.items.slice(0, 15)?.map((arr, index) => {
           return (
             <div
               key={index}

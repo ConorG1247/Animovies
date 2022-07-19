@@ -11,6 +11,9 @@ function AnimeTop({data, moreMovieInfo, title}) {
               onClick={() => moreMovieInfo(arr.mal_id)}
               className="new-movies-poster-title"
             >
+            {arr.score ? 
+            <div className="rating">⭐{arr?.score} {arr.type}</div> : 
+            <div className="rating">{arr.type}</div>}
               <img
                 className="new-movies-poster"
                 src={arr.images.jpg.image_url}
