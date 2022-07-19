@@ -7,7 +7,7 @@ function NewMovies() {
   const moreMovieInfo = (id) => {
     navigate(`/page/${id}`, {
       state: id,
-      replace: true,
+      replace: false,
     });
   };
 

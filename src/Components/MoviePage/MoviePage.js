@@ -40,7 +40,7 @@ function MoviePage() {
       id: movieData.imdbID,
     });
     setFetchContent({ url: url, method: method, body: body });
-    localStorage.setItem("check", "full")
+    localStorage.setItem("MovieCheck", "true")
   };
 
   return (

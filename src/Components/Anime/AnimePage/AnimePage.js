@@ -28,9 +28,7 @@ function AnimePage() {
     };
     searchResultData();
   }, [location.state]);
-
-  console.log(animeData)
-
+  
   const defineFetchContent = () => {
     const url = `${process.env.REACT_APP_BACKEND_URL}/update`;
     const method = "POST";
@@ -43,7 +41,7 @@ function AnimePage() {
       id: animeData.mal_id,
     });
     setFetchContent({ url: url, method: method, body: body });
-    localStorage.setItem("check", "full");
+    localStorage.setItem("AnimeCheck", "true");
   };
 
   useEffect(() => {

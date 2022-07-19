@@ -27,13 +27,13 @@ function SearchResult({ movieData }) {
       id: arr.imdbID,
     });
     setFetchContent({ url: url, method: method, body: body });
-    localStorage.setItem("check", "full")
+    localStorage.setItem("MovieCheck", "true")
   };
 
   const moreMovieInfo = (id) => {
     navigate(`/page/${id}`, {
       state: id,
-      replace: true,
+      replace: false,
     });
   };
 

@@ -7,7 +7,7 @@ import { IconButton } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 function WatchList() {
-  const [movieData, setMovieData] = useState();
+  const [movieData, setMovieData] = useState([]);
 
   const [deleteMovieData, setDeleteMovieData] = useState({
     url: null,
@@ -20,8 +20,7 @@ function WatchList() {
 
   // get inital watchlist data and store it in a state
   useEffect(() => {
-    if (localStorage.getItem("check") === "empty") {
-      console.log(true)
+    if (localStorage.getItem("MovieCheck") === "empty") {
       return;
     }
     const guestUser = localStorage.getItem("guest");
@@ -36,7 +35,6 @@ function WatchList() {
 
       if (res.ok) {
         setMovieData(data.payload[0].data);
-        console.log(true);
       }
     };
     initialData();
@@ -61,11 +59,11 @@ function WatchList() {
   const moreMovieInfo = (id) => {
     navigate(`/page/${id}`, {
       state: id,
-      replace: true,
+      replace: false,
     });
   };
 
-  if (movieData?.length === 0 || localStorage.getItem("check") === "empty") {
+  if (movieData?.length === 0 || localStorage.getItem("MovieCheck") === "empty") {
     return (
       <div>
         <NavBar type="Anime"/>

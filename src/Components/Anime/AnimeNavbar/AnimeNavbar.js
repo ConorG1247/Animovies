@@ -34,24 +34,6 @@ function NavBar() {
         />
         <MenuList bg="gray.800" border="gray">
             <MenuItem
-              onClick={() => navigate(`/anime/watchlist`)}
-              color="whitesmoke"
-              _hover={{ bg: "gray.700" }}
-              _expanded={{ bg: "gray.400" }}
-              _focus={{bg: "gray.700"}}
-            >
-              Watchlist
-            </MenuItem>
-            <MenuItem
-              onClick={() => navigate(`/anime/random`)}
-              color="whitesmoke"
-              _hover={{ bg: "gray.700" }}
-              _expanded={{ bg: "gray.400" }}
-              _focus={{bg: "gray.700"}}
-            >
-              Random
-            </MenuItem>
-            <MenuItem
               onClick={() => navigate(`/movie`)}
               color="whitesmoke"
               _hover={{ bg: "gray.700" }}
@@ -60,18 +42,24 @@ function NavBar() {
             >
               Movies
             </MenuItem>
+            <MenuItem
+              onClick={() => navigate(`/anime/watchlist`)}
+              color="whitesmoke"
+              _hover={{ bg: "gray.700" }}
+              _expanded={{ bg: "gray.400" }}
+              _focus={{bg: "gray.700"}}
+            >
+              Watchlist
+            </MenuItem>
         </MenuList>
       </Menu>
       </div>
         <div className="navbar-button-padding">
-            <Button onClick={() => navigate(`/anime/watchlist`)} variant="ghost" colorScheme="whiteAlpha" color="white" size="sm">
-              Watchlist
-            </Button>
-            <Button onClick={() => navigate(`/anime/random`)} variant="ghost" colorScheme="whiteAlpha" color="white" size="sm">
-              Random
-            </Button>
             <Button onClick={() => navigate(`/movie`)} variant="ghost" colorScheme="whiteAlpha" color="white" size="sm">
               Movies
+            </Button>
+            <Button onClick={() => navigate(`/anime/watchlist`)} variant="ghost" colorScheme="whiteAlpha" color="white" size="sm">
+              Watchlist
             </Button>
         </div>
       </div>

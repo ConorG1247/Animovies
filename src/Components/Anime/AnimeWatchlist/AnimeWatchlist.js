@@ -7,7 +7,7 @@ import { IconButton } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 function AnimeWatchlist() {
-  const [animeData, setAnimeData] = useState();
+  const [animeData, setAnimeData] = useState([]);
 
   const [deleteAnimeData, setDeleteAnimeData] = useState({
     url: null,
@@ -21,8 +21,7 @@ function AnimeWatchlist() {
 
   // get inital watchlist data and store it in a state
   useEffect(() => {
-    if (localStorage.getItem("check") === "empty") {
-      console.log(true)
+    if (localStorage.getItem("AnimeCheck") === "empty") {
       return;
     }
     const guestUser = localStorage.getItem("guest");
@@ -37,7 +36,6 @@ function AnimeWatchlist() {
 
       if (res.ok) {
         setAnimeData(data.payload[0].data);
-        console.log(true);
       }
     };
     initialData();
@@ -62,11 +60,11 @@ function AnimeWatchlist() {
   const moreMovieInfo = (id) => {
     navigate(`/anime/page/${id}`, {
       state: id,
-      replace: true,
+      replace: false,
     });
   };
 
-  if (animeData?.length === 0 || localStorage.getItem("check") === "empty") {
+  if (animeData?.length === 0 || localStorage.getItem("AnimeCheck") === "empty") {
     return (
       <div>
         <AnimeNavbar type="Movies"/>

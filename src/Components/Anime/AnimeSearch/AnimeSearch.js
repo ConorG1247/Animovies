@@ -14,7 +14,7 @@ function Search() {
     }
     const searchResultData = async () => {
       const res = await fetch(
-        `https://api.jikan.moe/v4/anime?q=${location.state}&type=tv&order_by=rank&sort=asc/&limit=10/&min_score=1/&sfw=true`
+        `https://api.jikan.moe/v4/anime?q=${location.state}&type=tv&order_by=rank&sort=asc/&limit=10/&min_score=1/&sfw=true/&letter=${location.state}`
       );
       const data = await res.json();
       setAnimeData(data.data);
@@ -26,7 +26,8 @@ function Search() {
     <>
       <AnimeNavbar />
       <br />
-      <div className="main-container-center">
+      <div className="main-container-center-anime">
+      <div className="anime-search-title">Search results for: {location.state}</div>
       <AnimeSearchResult animeData={animeData} />
       </div>
     </>

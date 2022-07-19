@@ -4,7 +4,10 @@ import { useEffect } from "react";
 function TypeSelection() {
 
 useEffect(() => {
-  localStorage.setItem("check", "empty")
+  if (!localStorage.getItem("MovieCheck")) {
+    localStorage.setItem("MovieCheck", "empty")
+    localStorage.setItem("AnimeCheck", "empty")
+  }
   if (localStorage.getItem("guest")) {
     return
   }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AnimeSimilar from "./AnimeSimilar/AnimeSimilar";
-import YouTube from "react-youtube"
+import YouTube from "react-youtube";
 
 function AnimePageExtra({ animeData, id }) {
   const [buttonSelection, setButtonSelection] = useState(0);
@@ -13,10 +13,10 @@ function AnimePageExtra({ animeData, id }) {
       if (buttonSelection === 1) {
         const res = await fetch(
           `https://api.jikan.moe/v4/anime/${id}/recommendations`
-          );
-          const data = await res.json();
-          setAnimeRec(data.data.slice(0, 20));
-          console.log(true)
+        );
+        const data = await res.json();
+        setAnimeRec(data.data.slice(0, 20));
+        console.log(true);
       }
     };
     animeRecommend();
@@ -25,7 +25,7 @@ function AnimePageExtra({ animeData, id }) {
   const moreMovieInfo = (id) => {
     navigate(`/anime/page/${id}`, {
       state: id,
-      replace: true,
+      replace: false,
     });
   };
 
@@ -61,6 +61,7 @@ function AnimePageExtra({ animeData, id }) {
           <button
             onClick={() => {
               setButtonSelection(2);
+              setAnimeRec();
             }}
             className={
               buttonSelection === 2
@@ -73,6 +74,7 @@ function AnimePageExtra({ animeData, id }) {
           <button
             onClick={() => {
               setButtonSelection(3);
+              setAnimeRec();
             }}
             className={
               buttonSelection === 3
@@ -137,22 +139,24 @@ function AnimePageExtra({ animeData, id }) {
             </div>
           );
         })}
-        </div>
-        <div
-          className={
-            buttonSelection === 3
-              ? "anime-trailer"
-              : "anime-trailer  anime-hidden"
-          }
-        >
-        {buttonSelection === 3 && <YouTube
-      className="anime-trailer-dimensions"
-      videoId={`${animeData?.trailer.youtube_id}`}
-      frameBorder="0"
-      title={`${animeData.title}`}
-      onReady={(e) => e.target.setVolume(10)}
-      opts={{playerVars: {autoplay: 1}}}
-       />}
+      </div>
+      <div
+        className={
+          buttonSelection === 3
+            ? "anime-trailer"
+            : "anime-trailer  anime-hidden"
+        }
+      >
+        {buttonSelection === 3 && (
+          <YouTube
+            className="anime-trailer-dimensions"
+            videoId={`${animeData?.trailer.youtube_id}`}
+            frameBorder="0"
+            title={`${animeData.title}`}
+            onReady={(e) => e.target.setVolume(10)}
+            opts={{ playerVars: { autoplay: 1 } }}
+          />
+        )}
       </div>
     </div>
   );

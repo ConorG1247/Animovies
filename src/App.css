@@ -1,6 +1,6 @@
 :root {
   --main-background-colour: rgb(36, 35, 35);
-  --hover-title-colour: rgb(133, 133, 237);
+  --hover-title-colour: rgb(84, 136, 231);
   --main-text-colour: white;
 }
 
@@ -714,6 +714,41 @@ cursor: pointer;
   height: 1px;
 }
 
+.main-container-center-anime {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main-background-colour);
+  margin-top: -1.5rem;
+}
+
+.anime-search-title {
+  color: var(--main-text-colour);
+  font-size: 1.1em;
+  padding: 1%;
+}
+
+.anime-home-container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  background-color: var(--main-background-colour);
+}
+
+.anime-home-container-title {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+
+.anime-home-title {
+  color: var(--main-text-colour);
+  font-size: 1.5em;
+  padding: 1%;
+}
+
 @media (max-width: 40rem) {
   .selection-container {
     flex-direction: column;
@@ -798,6 +833,9 @@ cursor: pointer;
   .anime-trailer-dimensions {
     width: 100vw;
     height: 50vh;
+  }
+  .anime-home-container-title {
+    width: 90%;
   }
 }
 

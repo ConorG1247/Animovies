@@ -25,7 +25,7 @@ function SearchBar() {
     }
     navigate(`/search/${movieSearchContent}`, {
       state: movieSearchContent,
-      replace: true,
+      replace: false,
     });
   };
 

@@ -27,13 +27,13 @@ function AnimeSearchResult({ animeData }) {
       id: arr.mal_id,
     });
     setFetchContent({ url: url, method: method, body: body });
-    localStorage.setItem("check", "full")
+    localStorage.setItem("AnimeCheck", "true")
   };
 
   const moreMovieInfo = (id) => {
     navigate(`/anime/page/${id}`, {
       state: id,
-      replace: true,
+      replace: false,
     });
   };
 

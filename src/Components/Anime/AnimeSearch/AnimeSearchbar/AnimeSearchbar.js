@@ -24,7 +24,7 @@ function SearchBar() {
     }
     navigate(`/anime/search/${animeSearchContent}`, {
       state: animeSearchContent,
-      replace: true,
+      replace: false,
     });
   };
 

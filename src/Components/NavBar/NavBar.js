@@ -1,4 +1,3 @@
-import React from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Button } from "@chakra-ui/react";
@@ -34,6 +33,15 @@ function NavBar() {
         />
         <MenuList bg="gray.800" border="gray">
             <MenuItem
+              onClick={() => navigate(`/anime`)}
+              color="whitesmoke"
+              _hover={{ bg: "gray.700" }}
+              _expanded={{ bg: "gray.400" }}
+              _focus={{bg: "gray.700"}}
+            >
+              Anime
+            </MenuItem>
+            <MenuItem
               onClick={() => navigate(`/watchlist`)}
               color="whitesmoke"
               _hover={{ bg: "gray.700" }}
@@ -51,27 +59,18 @@ function NavBar() {
             >
               Random
             </MenuItem>
-            <MenuItem
-              onClick={() => navigate(`/anime`)}
-              color="whitesmoke"
-              _hover={{ bg: "gray.700" }}
-              _expanded={{ bg: "gray.400" }}
-              _focus={{bg: "gray.700"}}
-            >
-              Anime
-            </MenuItem>
         </MenuList>
       </Menu>
       </div>
         <div className="navbar-button-padding">
+            <Button onClick={() => navigate(`/anime`)} variant="ghost" colorScheme="whiteAlpha" color="white" size="sm">
+              Anime
+            </Button>
             <Button onClick={() => navigate(`/watchlist`)} variant="ghost" colorScheme="whiteAlpha" color="white" size="sm">
               Watchlist
             </Button>
             <Button onClick={() => navigate(`/random`)} variant="ghost" colorScheme="whiteAlpha" color="white" size="sm">
               Random
-            </Button>
-            <Button onClick={() => navigate(`/anime`)} variant="ghost" colorScheme="whiteAlpha" color="white" size="sm">
-              Anime
             </Button>
         </div>
       </div>
