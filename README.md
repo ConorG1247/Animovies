@@ -26,7 +26,7 @@
 
 ## 🎬 Idea for the app
 
-I watch a lot of movies and anime, some good and some bad, and I love keeping track of which I've watched and ones I plan to using [letterboxd](https://letterboxd.com) or [MyAnimeList](https://MyAnimeList.net). 
+I watch a lot of movies and anime, some good and some bad, and I love keeping track of which I've watched and ones I plan to using [Letterboxd](https://letterboxd.com) or [MyAnimeList](https://MyAnimeList.net). 
 
 Sometimes I wish that I could customise my profile and see more stats such as average ratings for all movies/anime rated, which is one of the reasons I created this app as well as just improving my React, CSS and JavaScript knowledge while learning new tech like MongoDB.
 
@@ -65,21 +65,17 @@ Sometimes I wish that I could customise my profile and see more stats such as av
  </p>
 
  
- ### Lists
+ ### Watch list
  
- A way for a user to personalise their space within the app by curating their own customisable lists.
+ Allows the user to add movies/anime to a watch list and remove later when they've finished watching.
  
  ### Searching
  
- The main way a user populates their list. They search for a particular book title and are presented with results from the Openlibrary API.
+ Using OMDb and Jikan API, the user can search for any movies/anime they want to add to their list.
  
  ### Surprise me
  
- The secondary way a user populates their list, this is a search based on a topic and presents a random book.
- 
- ### Profile
- 
- A visual represenatation of a users journey through our app. The rating and total books are dynamic and based on users data with the other features being in development.
+ Provides a random movie from either the highest rated movies of all time or a popular movie right now.
  
  ### <a href="https://animovies.netlify.app/">Demo Animovies</a>  
  
