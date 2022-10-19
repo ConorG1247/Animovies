@@ -26,7 +26,7 @@
 
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png"/>
 
-## 🎬 Idea for the app
+## 💡 Idea for the app
 
 I watch a lot of movies and anime, some good and some bad, and I love keeping track of which I've watched and ones I plan to using [Letterboxd](https://letterboxd.com) or [MyAnimeList](https://MyAnimeList.net). 
 
