@@ -1,6 +1,6 @@
 
 <a href="https://animovies.netlify.app/">
-<p align="center"><img src="https://puu.sh/JiDdV/000cebccab.png" alt="BÖK Logo" width="200"/></p>
+<p align="center"><img src="https://puu.sh/JiDdV/000cebccab.png" alt="Animovies Logo" width="200"/></p>
 </a>
 
 <p align="center">
